@@ -1,13 +1,40 @@
-form,
-.dropdown__container {
+.app-searchbar {
+  min-height: calc(100vh - calc(56px + 1rem));
+  /* max-height: min-content; */
+}
+#p {
+  display: inline-block;
+  line-height: 0%;
+  margin: 0;
+}
+.search_form,
+.dropdown__container,
+.search_result {
   width: 80%;
   margin: 0 auto;
 }
 
 .dropdown__container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.search_result {
+  height: calc(calc(100vh - calc(56px + 1rem)) * 0.8);
+  background-color: rgb(212, 212, 212);
+  overflow-y: scroll;
+}
+
+#h3 {
+  margin: 0;
+  text-align: center;
+  width: max-content;
+}
+
+.search_bar__wrap {
+  display: flex;
+  flex: 1;
 }

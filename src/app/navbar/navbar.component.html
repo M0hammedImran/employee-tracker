@@ -15,20 +15,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a
-          class="nav-link"
-          [class.active]="className === 'home'"
-          routerLink="/"
-          (click)="className = 'home'"
+        <a class="nav-link" routerLinkActive="active" routerLink="/home"
           >Home</a
         >
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link"
-          [class.active]="className === 'search'"
-          routerLink="/search"
-          (click)="className = 'search'"
+        <a class="nav-link" routerLinkActive="active" routerLink="/search"
           >Search</a
         >
       </li>

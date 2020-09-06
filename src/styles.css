@@ -10,6 +10,27 @@
   box-shadow: 0px 3px 5px var(--shadow); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
 
-body {
+body,
+input,
+button {
   font-family: "Nunito", sans-serif;
+}
+
+@media screen and (max-width: 589px) and (orientation: portrait) {
+  form.search_form p#p {
+    display: inline;
+  }
+  div.app-searchbar form.search_form div.input-group.mb-3 div.btn-group.mr-2 {
+    width: 100%;
+  }
+  .input-group {
+    display: block;
+  }
+  .search_bar__wrap {
+    margin-top: 1rem;
+  }
+  .dropdown__container h3#h3 {
+    flex: 1;
+    width: 100%;
+  }
 }

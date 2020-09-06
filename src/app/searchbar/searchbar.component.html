@@ -1,78 +1,114 @@
-<form action="">
-  <div class="input-group mb-3">
+<div class="app-searchbar">
+  <form (submit)="search()" class="search_form">
+    <p id="p">Search using Name, Employee ID and Designation</p>
     <div class="input-group mb-3">
-      <input
-        type="text"
-        class="form-control"
-        aria-label="Recipient's username"
-        aria-describedby="button-addon2"
-      />
-      <div class="input-group-append">
+      <div class="btn-group mr-2">
         <button
-          class="btn btn-outline-secondary"
           type="button"
-          id="button-addon2"
+          class="btn btn-primary dropdown-toggle"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
         >
-          Search
+          Search using
+          {{
+            searchFilter === "employeeID"
+              ? "Employee ID"
+              : searchFilter === "designation"
+              ? "Designation"
+              : "Name"
+          }}
         </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" (click)="searchFilter = 'firstName'">Name</a>
+          <a class="dropdown-item" (click)="searchFilter = 'employeeId'">
+            Employee ID
+          </a>
+          <a class="dropdown-item" (click)="searchFilter = 'designation'">
+            Designation
+          </a>
+        </div>
+      </div>
+      <div class="search_bar__wrap">
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Search Term"
+          aria-describedby="button-addon2"
+          [(ngModel)]="searchTerm"
+          name="search"
+          autocomplete="off"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            id="button-addon2"
+            (click)="search()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="dropdown__container">
+    <h3 id="h3">Filters:</h3>
+    <div class="btn-group">
+      <button
+        type="button"
+        class="btn btn-primary dropdown-toggle"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Date of Birth
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item">Action</a>
+        <a class="dropdown-item">Another action</a>
+        <a class="dropdown-item">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item">Separated link</a>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button
+        type="button"
+        class="btn btn-primary dropdown-toggle"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Gender
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item">Male</a>
+        <a class="dropdown-item">Female</a>
+        <a class="dropdown-item">Other</a>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button
+        type="button"
+        class="btn btn-primary dropdown-toggle"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Age
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item">18 - 25</a>
+        <a class="dropdown-item">25 - 35</a>
+        <a class="dropdown-item">35 - 45</a>
+        <a class="dropdown-item">45 - 55</a>
       </div>
     </div>
   </div>
-</form>
-
-<div class="dropdown__container">
-  <div class="btn-group">
-    <button
-      type="button"
-      class="btn btn-danger dropdown-toggle"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-      Date of Birth
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
-    </div>
-  </div>
-
-  <div class="btn-group">
-    <button
-      type="button"
-      class="btn btn-danger dropdown-toggle"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-      Gender
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
-    </div>
-  </div>
-  <div class="btn-group">
-    <button
-      type="button"
-      class="btn btn-danger dropdown-toggle"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-      Age
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">18 - 25</a>
-      <a class="dropdown-item" href="#">25 - 35</a>
-      <a class="dropdown-item" href="#">35 - 45</a>
-      <a class="dropdown-item" href="#">45 - 55</a>
-    </div>
+  <div class="search_result">
+    <app-search-result [employees]="searchResult"></app-search-result>
   </div>
 </div>
