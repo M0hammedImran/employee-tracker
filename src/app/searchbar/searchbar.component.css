@@ -1,0 +1,13 @@
+form,
+.dropdown__container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.dropdown__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
