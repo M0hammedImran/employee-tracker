@@ -15,7 +15,9 @@ input,
 button {
   font-family: "Nunito", sans-serif;
 }
-
+button#reset-button.datetime-reset-button {
+  display: none;
+}
 @media screen and (max-width: 589px) and (orientation: portrait) {
   form.search_form p#p {
     display: inline;

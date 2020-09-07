@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import EmployeeScheme from '../employee.scheme';
-
+import { data } from '../data';
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
@@ -9,532 +9,98 @@ import EmployeeScheme from '../employee.scheme';
 export class SearchbarComponent implements OnInit {
   constructor() {}
 
-  employees: EmployeeScheme[] = [
-    {
-      employeeId: '11',
-      firstName: 'Evert',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '05-07-1999',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-        work: '314 - 334 - 4614',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Gust',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '33',
-      firstName: 'Vilma',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Assistant Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Giuseppe',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '66',
-      firstName: 'Imran',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Evert',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '05-07-1999',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Evert',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '05-07-1999',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-    {
-      employeeId: '11',
-      firstName: 'Ray',
-      profilePhoto:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/jjsiii/128.jpg',
-      DOB: '12-05-2000',
-      gender: 'male',
-      address: {
-        home: {
-          streetAddress: 'string',
-          city: 'North Jayme',
-          state: 'Maryland',
-          country: 'Berkshire',
-          pinCode: 73487,
-        },
-      },
-      designation: 'Manager',
-      department: 'Human Resource',
-      contact: {
-        home: '314 - 334 - 4613',
-      },
-    },
-  ];
+  employees: EmployeeScheme[] = data;
+  N = 100 - 18;
+  arrayAge = Array.apply(null, { length: this.N }).map(Number.call, Number);
+  arrayGender = ['Male', 'Female', 'Others'];
+
   searchResult: EmployeeScheme[];
   searchTerm: string;
   searchFilter = 'firstName';
   showResult = false;
-  inputHandler($event): void {
-    console.log($event.target.value);
+  dobFilter: string;
+  ageFilter: number;
+  genderFilter: string;
+
+  inputDateHandler(i: string): void {
+    this.dobFilter = i;
+    this.genderFilter = null;
+    this.ageFilter = null;
   }
+  inputGenderHandler(i: string): void {
+    this.genderFilter = i;
+    this.ageFilter = null;
+    this.dobFilter = null;
+  }
+  inputAgeHandler(i: number): void {
+    this.ageFilter = i + 18;
+    this.genderFilter = null;
+    this.dobFilter = null;
+  }
+
   search(): void {
-    this.showResult = false;
-    this.searchResult = this.employees.filter((emp) => {
-      return emp[this.searchFilter].toString().toLowerCase() ===
-        this.searchTerm.toLowerCase()
-        ? emp
-        : null;
-    });
+    // tslint:disable-next-line: curly
+    if (!this.searchTerm) return;
+
+    if (!this.dobFilter && !this.ageFilter && !this.genderFilter) {
+      this.searchResult = this.employees.filter((emp) => {
+        return emp[this.searchFilter].toString().toLowerCase() ===
+          this.searchTerm.toLowerCase()
+          ? emp
+          : null;
+      });
+    } else if (this.dobFilter) {
+      this.searchResult = this.employees.filter((emp) => {
+        return emp[this.searchFilter].toString().toLowerCase() ===
+          this.searchTerm.toLowerCase() && compareDates(emp.DOB, this.dobFilter)
+          ? emp
+          : null;
+      });
+    } else if (this.ageFilter) {
+      this.searchResult = this.employees.filter((emp) => {
+        return emp[this.searchFilter].toString().toLowerCase() ===
+          this.searchTerm.toLowerCase() && getAge(emp.DOB) === this.ageFilter
+          ? emp
+          : null;
+      });
+    } else if (this.genderFilter) {
+      this.searchResult = this.employees.filter((emp) => {
+        return emp[this.searchFilter].toString().toLowerCase() ===
+          this.searchTerm.toLowerCase() &&
+          emp.gender.toLowerCase() === this.genderFilter.toLowerCase()
+          ? emp
+          : null;
+      });
+    } else {
+      return;
+    }
+    this.searchTerm = null;
     this.showResult = this.searchResult ? true : false;
   }
 
   ngOnInit(): void {}
 }
+
+const getAge = (dateString: string): number => {
+  const today = new Date();
+  const birthDate = new Date(dateString);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+};
+
+const compareDates = (dateA: string, dateB: string): boolean => {
+  const a = new Date(dateA);
+  const b = new Date(dateB);
+  // tslint:disable-next-line: curly
+  if (
+    a.getDate() === b.getDate() &&
+    a.getMonth() === b.getMonth() &&
+    a.getFullYear() === b.getFullYear()
+  )
+    return true;
+  return false;
+};

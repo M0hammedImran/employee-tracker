@@ -6,14 +6,14 @@ export default interface EmployeeScheme {
   DOB: string;
   gender: string;
   address: {
-    home: {
+    current: {
       streetAddress: string;
       city: string;
       state: string;
       country: string;
       pinCode: number;
     };
-    work?: {
+    permanent?: {
       streetAddress: string;
       City: string;
       State: string;
@@ -24,7 +24,13 @@ export default interface EmployeeScheme {
   designation: string;
   department: string;
   contact: {
-    home?: string;
-    work?: string;
+    phone: {
+      home?: string;
+      work?: string;
+    };
+    email: {
+      personal?: string;
+      work?: string;
+    };
   };
 }

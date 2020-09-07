@@ -10,8 +10,6 @@
         <th id="phone">Phone</th>
       </tr>
     </thead>
-
-    <!-- *ngIf=" typeof employees === String && employees === 'error'; else elseBlock" -->
     <tbody *ngFor="let employee of employees">
       <tr>
         <td class="emp_id">{{ employee.employeeId }}</td>
@@ -25,10 +23,13 @@
         <td>{{ employee.firstName }}</td>
         <td>{{ employee.DOB }}</td>
         <td>{{ employee.gender.toUpperCase() }}</td>
-        <td>
-          <span><b>Home:</b> {{ employee.contact.home }}</span> <br />
-          <span *ngIf="employee.contact.work">
-            <b>Work:</b> {{ employee.contact.work }}
+        <td id="phone">
+          <p>
+            <span class="bold">Home:</span> {{ employee.contact.phone.home }}
+          </p>
+          <br />
+          <span *ngIf="employee.contact.phone.work">
+            <b>Work:</b> {{ employee.contact.phone.work }}
           </span>
         </td>
       </tr>

@@ -70,10 +70,12 @@
       <div class="dropdown-menu">
         <input
           type="date"
-          value="2018-07-22"
-          (input)="inputHandler($event)"
+          value="2002-12-31"
+          (change)="inputDateHandler($event.target.valueAsDate.toString())"
           class="dropdown-item"
+          min="1945-12-31"
         />
+        <!-- max="2002-12-31" -->
       </div>
     </div>
 
@@ -88,9 +90,13 @@
         Gender
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item">Male</a>
-        <a class="dropdown-item">Female</a>
-        <a class="dropdown-item">Other</a>
+        <a class="dropdown-item" (click)="inputGenderHandler(null)">None</a>
+        <a
+          *ngFor="let i of arrayGender"
+          class="dropdown-item"
+          (click)="inputGenderHandler(i)"
+          >{{ i }}</a
+        >
       </div>
     </div>
     <div class="btn-group">
@@ -104,16 +110,18 @@
         Age
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item">18 - 25</a>
-        <a class="dropdown-item">26 - 35</a>
-        <a class="dropdown-item">36 - 45</a>
-        <a class="dropdown-item">46 - 55</a>
-        <a class="dropdown-item">56 - 65</a>
-        <a class="dropdown-item">66 - 75</a>
+        <input type="number" name="age" id="age" />
+        <a class="dropdown-item" (click)="inputAgeHandler(null)">None</a>
+        <a
+          *ngFor="let i of arrayAge"
+          class="dropdown-item"
+          (click)="inputAgeHandler(i)"
+          >{{ i + 18 }}</a
+        >
       </div>
     </div>
   </div>
-  <div *ngIf="showResult" class="search_result animated">
+  <div *ngIf="showResult" class="search_result" data-animation="true">
     <app-search-result [employees]="searchResult"></app-search-result>
   </div>
 </div>

@@ -11,8 +11,11 @@ th {
 
 #phone {
   width: min-content;
+  min-width: fit-content;
 }
-
+#phone > p {
+  white-space: nowrap;
+}
 .img__profile_photo {
   height: 50%;
   max-height: 64px;
