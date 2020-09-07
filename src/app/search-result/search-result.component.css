@@ -12,3 +12,8 @@ th {
 #phone {
   width: min-content;
 }
+
+.img__profile_photo {
+  height: 50%;
+  max-height: 64px;
+}

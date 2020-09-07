@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { NewEmployeeComponent } from './new-employee/new-employee.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
     SearchbarComponent,
     NotfoundComponent,
     SearchResultComponent,
+    NewEmployeeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

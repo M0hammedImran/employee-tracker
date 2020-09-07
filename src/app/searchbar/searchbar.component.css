@@ -20,6 +20,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
+  z-index: 999;
 }
 
 .search_result {
@@ -37,4 +38,29 @@
 .search_bar__wrap {
   display: flex;
   flex: 1;
+}
+
+.dropdown-menu > a:hover {
+  cursor: pointer;
+  background: rgb(195, 209, 208);
+}
+.animated {
+  transform-origin: top;
+  /* transition: transform 0.3s ease-in-out; */
+  animation: 0.6s ease-in both expand;
+  z-index: -1;
+}
+
+@keyframes expand {
+  from {
+    opacity: 0.7;
+    transform: translateY(-10px);
+    /* width: ; */
+    height: 0%;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+    height: 100%;
+  }
 }

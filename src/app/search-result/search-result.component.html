@@ -2,7 +2,8 @@
   <table>
     <thead>
       <tr>
-        <th id="phone">Employee ID</th>
+        <th id="empId">Employee ID</th>
+        <th id="profile_photo">Photo</th>
         <th id="name">Name</th>
         <th id="date_of_birth">Date of Birth</th>
         <th id="gender">Gender</th>
@@ -14,6 +15,13 @@
     <tbody *ngFor="let employee of employees">
       <tr>
         <td class="emp_id">{{ employee.employeeId }}</td>
+        <td class="emp_id">
+          <img
+            src="{{ employee.profilePhoto }}"
+            class="img__profile_photo"
+            alt="Profile Photo"
+          />
+        </td>
         <td>{{ employee.firstName }}</td>
         <td>{{ employee.DOB }}</td>
         <td>{{ employee.gender.toUpperCase() }}</td>

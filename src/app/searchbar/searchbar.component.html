@@ -12,11 +12,13 @@
         >
           Search using
           {{
-            searchFilter === "employeeID"
+            searchFilter === "firstName"
+              ? "Name"
+              : searchFilter === "employeeId"
               ? "Employee ID"
               : searchFilter === "designation"
               ? "Designation"
-              : "Name"
+              : "..."
           }}
         </button>
         <div class="dropdown-menu">
@@ -66,11 +68,12 @@
         Date of Birth
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item">Action</a>
-        <a class="dropdown-item">Another action</a>
-        <a class="dropdown-item">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item">Separated link</a>
+        <input
+          type="date"
+          value="2018-07-22"
+          (input)="inputHandler($event)"
+          class="dropdown-item"
+        />
       </div>
     </div>
 
@@ -102,13 +105,15 @@
       </button>
       <div class="dropdown-menu">
         <a class="dropdown-item">18 - 25</a>
-        <a class="dropdown-item">25 - 35</a>
-        <a class="dropdown-item">35 - 45</a>
-        <a class="dropdown-item">45 - 55</a>
+        <a class="dropdown-item">26 - 35</a>
+        <a class="dropdown-item">36 - 45</a>
+        <a class="dropdown-item">46 - 55</a>
+        <a class="dropdown-item">56 - 65</a>
+        <a class="dropdown-item">66 - 75</a>
       </div>
     </div>
   </div>
-  <div class="search_result">
+  <div *ngIf="showResult" class="search_result animated">
     <app-search-result [employees]="searchResult"></app-search-result>
   </div>
 </div>

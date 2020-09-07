@@ -521,15 +521,19 @@ export class SearchbarComponent implements OnInit {
   searchResult: EmployeeScheme[];
   searchTerm: string;
   searchFilter = 'firstName';
-
+  showResult = false;
+  inputHandler($event): void {
+    console.log($event.target.value);
+  }
   search(): void {
+    this.showResult = false;
     this.searchResult = this.employees.filter((emp) => {
-      console.log(emp[this.searchFilter]);
       return emp[this.searchFilter].toString().toLowerCase() ===
         this.searchTerm.toLowerCase()
         ? emp
         : null;
     });
+    this.showResult = this.searchResult ? true : false;
   }
 
   ngOnInit(): void {}
