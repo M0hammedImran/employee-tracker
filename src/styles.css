@@ -18,6 +18,19 @@ button {
 button#reset-button.datetime-reset-button {
   display: none;
 }
+a.dropdown-item {
+  cursor: pointer;
+}
+a.dropdown-item:hover {
+  background: rgb(219, 219, 219);
+}
+
+.dropdown-menu.show {
+  left: 50% !important;
+  will-change: transform;
+  transform: translate(-50%, 35%) !important;
+}
+
 @media screen and (max-width: 589px) and (orientation: portrait) {
   form.search_form p#p {
     display: inline;
@@ -34,5 +47,9 @@ button#reset-button.datetime-reset-button {
   .dropdown__container h3#h3 {
     flex: 1;
     width: 100%;
+  }
+  .form1_container {
+    width: 98% !important;
+    margin: 1rem auto !important;
   }
 }

@@ -1,10 +1,12 @@
 export default interface EmployeeScheme {
   employeeId: string;
+  profilePhoto: string;
   firstName: string;
   lastName?: string;
-  profilePhoto: string;
   DOB: string;
   gender: string;
+  designation: string;
+  department: string;
   address: {
     current: {
       streetAddress: string;
@@ -15,14 +17,12 @@ export default interface EmployeeScheme {
     };
     permanent?: {
       streetAddress: string;
-      City: string;
-      State: string;
-      Country: string;
+      city: string;
+      state: string;
+      country: string;
       pinCode: number;
     };
   };
-  designation: string;
-  department: string;
   contact: {
     phone: {
       home?: string;

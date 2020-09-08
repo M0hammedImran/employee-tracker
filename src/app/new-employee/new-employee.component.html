@@ -1,20 +1,433 @@
-<nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" routerLinkActive="active" routerLink="personal-info"
-        >Personal Info</a
-      >
-    </li>
-    <li class="page-item">
-      <a class="page-link" routerLinkActive="active" routerLink="addresses"
-        >Address</a
-      >
-    </li>
-    <li class="page-item">
-      <a class="page-link" routerLinkActive="active" routerLink="contacts"
-        >Contacts</a
-      >
-    </li>
-  </ul>
-</nav>
-<router-outlet></router-outlet>
+<div class="employees_form_nav__container">
+  <nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" (click)="inputCounter = 'personal'">
+          Personal Info
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" (click)="inputCounter = 'address'"> Address </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" (click)="inputCounter = 'contact'"> Contacts </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div [ngSwitch]="inputCounter">
+  <div *ngSwitchCase="'personal'">
+    <form [formGroup]="personalInfo">
+      <div class="form_container container-fluid">
+        <div *ngIf="message" class="alert alert-danger">
+          <div>{{ message }}</div>
+        </div>
+        <div class="form-group w-auto mb-3">
+          <label for="first-name">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="first-name"
+            aria-describedby="basic-addon3"
+            required
+            minlength="3"
+            maxlength="12"
+            name="firstName"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="from-group w-auto mb-3">
+          <label for="last-name">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="last-name"
+            aria-describedby="basic-addon3"
+            name="lastName"
+            formControlName="lastName"
+          />
+        </div>
+
+        <div class="date-of-birth_container mb-3">
+          <div class="form-group dob mb-3">
+            <label for="date-of-birth">Date of Birth</label>
+            <input
+              type="date"
+              id="date-of-birth"
+              class="form-control"
+              aria-describedby="basic-addon3"
+              required
+              name="date"
+              formControlName="DOB"
+            />
+          </div>
+          <div class="btn-group gender mt-3">
+            <select
+              class="custom-select"
+              name="gender"
+              formControlName="gender"
+            >
+              <option selected>Open this select menu</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group w-auto mb-3">
+          <label for="designation">Designation</label>
+          <input
+            type="text"
+            class="form-control"
+            id="designation"
+            aria-describedby="basic-addon3"
+            required
+            name="designation"
+            formControlName="designation"
+          />
+        </div>
+        <div class="from-group w-auto mb-3">
+          <label for="department">Department</label>
+          <input
+            type="text"
+            class="form-control"
+            id="department"
+            aria-describedby="basic-addon3"
+            name="department"
+            formControlName="department"
+            required
+          />
+        </div>
+        <div class="btn_container">
+          <button
+            type="submit"
+            (click)="submitPersonal()"
+            class="btn btn-primary next_btn"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngSwitchCase="'contact'">
+    <form [formGroup]="myContact">
+      <div class="form_container container-fluid">
+        <div class="form-group w-auto mb-3">
+          <label for="home-phone">Home Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            id="home-phone"
+            aria-describedby="basic-addon3"
+            required
+            name="homePhone"
+            formControlName="homePhone"
+          />
+        </div>
+        <div class="from-group w-auto mb-3">
+          <label for="work-phone">Work Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            id="work-phone"
+            aria-describedby="basic-addon3"
+            name="workPhone"
+            formControlName="workPhone"
+          />
+        </div>
+
+        <div class="form-group w-auto mb-3">
+          <label for="personal-email">Personal Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="personal-email"
+            aria-describedby="basic-addon3"
+            formControlName="personalEmail"
+            name="personalEmail"
+          />
+        </div>
+        <div class="from-group w-auto mb-3">
+          <label for="work-email">Work Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="work-email"
+            aria-describedby="basic-addon3"
+            name="workEmail"
+            required
+            formControlName="workEmail"
+          />
+        </div>
+        <div class="btn_container">
+          <button
+            type="submit"
+            (click)="submitContact()"
+            class="btn btn-primary next_btn"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngSwitchCase="'address'">
+    <form [formGroup]="currentAddress" *ngIf="count === 0; else permanent">
+      <div class="form_container container-fluid">
+        <div class=""><h1>Current Address</h1></div>
+        <div class="form-group w-auto mb-3">
+          <label for="street-address">Street Address</label>
+          <input
+            type="text"
+            class="form-control"
+            id="street-address"
+            aria-describedby="basic-addon3"
+            required
+            name="street-address"
+            formControlName="streetAddress"
+          />
+        </div>
+        <div class="from-group w-auto mb-3">
+          <label for="city">city</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            aria-describedby="basic-addon3"
+            name="city"
+            formControlName="city"
+          />
+        </div>
+
+        <div class="form-group w-auto mb-3">
+          <label for="state">State</label>
+          <input
+            type="text"
+            class="form-control"
+            id="state"
+            aria-describedby="basic-addon3"
+            required
+            name="state"
+            formControlName="state"
+          />
+        </div>
+        <div class="from-group w-auto mb-3">
+          <label for="country">Country</label>
+          <input
+            type="text"
+            class="form-control"
+            id="country"
+            aria-describedby="basic-addon3"
+            name="country"
+            required
+            formControlName="country"
+          />
+        </div>
+        <div class="from-group w-auto mb-3">
+          <label for="pin-code">Pin Code</label>
+          <input
+            type="text"
+            class="form-control"
+            id="pin-code"
+            aria-describedby="basic-addon3"
+            name="pinCode"
+            required
+            formControlName="pinCode"
+          />
+        </div>
+        <div class="btn_container">
+          <button
+            type="submit"
+            (click)="count = count + 1"
+            class="btn btn-primary next_btn"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </form>
+    <ng-template #permanent>
+      <form [formGroup]="permanentAddress">
+        <div class="form_container container-fluid">
+          <div class=""><h1>Permanent Address</h1></div>
+          <div class="form-check mb-5 mt-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              (click)="sameAddress()"
+              id="defaultCheck1"
+            />
+            <label class="form-check-label" for="defaultCheck1">
+              Same as Current Address
+            </label>
+          </div>
+          <div class="form-group w-auto mb-3">
+            <label for="street-address">Street Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="street-address"
+              aria-describedby="basic-addon3"
+              required
+              name="street-address"
+              formControlName="streetAddress"
+            />
+          </div>
+          <div class="from-group w-auto mb-3">
+            <label for="city">city</label>
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              aria-describedby="basic-addon3"
+              name="city"
+              formControlName="city"
+            />
+          </div>
+
+          <div class="form-group w-auto mb-3">
+            <label for="state">State</label>
+            <input
+              type="text"
+              class="form-control"
+              id="state"
+              aria-describedby="basic-addon3"
+              required
+              name="state"
+              formControlName="state"
+            />
+          </div>
+          <div class="from-group w-auto mb-3">
+            <label for="country">Country</label>
+            <input
+              type="text"
+              class="form-control"
+              id="country"
+              aria-describedby="basic-addon3"
+              name="country"
+              required
+              formControlName="country"
+            />
+          </div>
+          <div class="from-group w-auto mb-3">
+            <label for="pin-code">Pin Code</label>
+            <input
+              type="text"
+              class="form-control"
+              id="pin-code"
+              aria-describedby="basic-addon3"
+              name="pinCode"
+              required
+              formControlName="pinCode"
+            />
+          </div>
+          <div class="btn_container">
+            <button
+              type="submit"
+              (click)="submitAddress()"
+              class="btn btn-primary next_btn"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </form>
+    </ng-template>
+  </div>
+  <div *ngSwitchDefault>
+    <form [formGroup]="personalInfo">
+      <div class="form_container container-fluid">
+        <div *ngIf="message" class="alert alert-danger">
+          <div>{{ message }}</div>
+        </div>
+        <div class="form-group w-auto mb-3">
+          <label for="first-name">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="first-name"
+            aria-describedby="basic-addon3"
+            required
+            minlength="3"
+            maxlength="12"
+            name="firstName"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="from-group w-auto mb-3">
+          <label for="last-name">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="last-name"
+            aria-describedby="basic-addon3"
+            name="lastName"
+            formControlName="lastName"
+          />
+        </div>
+
+        <div class="date-of-birth_container mb-3">
+          <div class="form-group dob mb-3">
+            <label for="date-of-birth">Date of Birth</label>
+            <input
+              type="date"
+              id="date-of-birth"
+              class="form-control"
+              aria-describedby="basic-addon3"
+              required
+              name="date"
+              formControlName="DOB"
+            />
+          </div>
+          <div class="btn-group gender mt-3">
+            <select
+              class="custom-select"
+              name="gender"
+              formControlName="gender"
+            >
+              <option selected>Open this select menu</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group w-auto mb-3">
+          <label for="designation">Designation</label>
+          <input
+            type="text"
+            class="form-control"
+            id="designation"
+            aria-describedby="basic-addon3"
+            required
+            name="designation"
+            formControlName="designation"
+          />
+        </div>
+        <div class="from-group w-auto mb-3">
+          <label for="department">Department</label>
+          <input
+            type="text"
+            class="form-control"
+            id="department"
+            aria-describedby="basic-addon3"
+            name="department"
+            formControlName="department"
+            required
+          />
+        </div>
+        <div class="btn_container">
+          <button
+            type="submit"
+            (click)="submitPersonal()"
+            class="btn btn-primary next_btn"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

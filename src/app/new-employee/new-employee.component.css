@@ -1,0 +1,43 @@
+.employees_form_nav__container {
+  margin: 0 auto;
+  /* display: inline-flex; */
+  width: max-content;
+  min-width: 300px;
+}
+.form_container {
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #ddd;
+  border-radius: 0.21rem;
+}
+
+.name_container {
+  /* min-width: 300px; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.gender {
+  width: 45% !important;
+  /* margin: ; */
+}
+
+.dob {
+  width: 45% !important;
+}
+
+.date-of-birth_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn_container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}

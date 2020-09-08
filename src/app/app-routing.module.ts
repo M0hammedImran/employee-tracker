@@ -14,25 +14,6 @@ const routes: Routes = [
   {
     path: 'new-employee',
     component: NewEmployeeComponent,
-    children: [
-      {
-        path: 'personal-info',
-        component: PersonalInfoComponent,
-      },
-      {
-        path: 'addresses',
-        component: AddressComponent,
-      },
-      {
-        path: 'contacts',
-        component: ContactsComponent,
-      },
-      {
-        path: '',
-        redirectTo: '/new-employee/personal-info',
-        pathMatch: 'full',
-      },
-    ],
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotfoundComponent },

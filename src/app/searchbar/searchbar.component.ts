@@ -1,15 +1,18 @@
+import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import EmployeeScheme from '../employee.scheme';
-import { data } from '../data';
+
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.css'],
 })
 export class SearchbarComponent implements OnInit {
-  constructor() {}
-
-  employees: EmployeeScheme[] = data;
+  constructor(private dataService: DataService) {}
+  get data(): EmployeeScheme[] {
+    return this.dataService.sharedData;
+  }
+  employees: EmployeeScheme[] = this.data;
   N = 100 - 18;
   arrayAge = Array.apply(null, { length: this.N }).map(Number.call, Number);
   arrayGender = ['Male', 'Female', 'Others'];
